@@ -2,6 +2,7 @@ public class Word{
     private String engWord;     //English word
     private String vieWord;     //Vietnamese definition of word
 
+    /* Contructors, getters and setters */
     public Word(String engWord, String vieWord){
         this.engWord    = new String(engWord);
         this.vieWord    = new String(vieWord);

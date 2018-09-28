@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class DictionaryManagement{
+    // Receive several English words and their Vietnamese definitions from the Commandline
     public static void insertFromCommandline(){
         Scanner scanner = new Scanner(System.in);
         
