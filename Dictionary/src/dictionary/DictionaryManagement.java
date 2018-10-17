@@ -2,7 +2,6 @@ package dictionary;
 
 import java.io.FileNotFoundException;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryManagement{
@@ -17,7 +16,7 @@ public class DictionaryManagement{
             engWord = sc.nextLine();
             System.out.print("Nhap giai thich tieng Viet: ");
             definition = sc.nextLine();
-            Dictionary.insertNewWord(new Word(engWord, definition));
+            Dictionary.insertNewWord(new Word(engWord.toLowerCase(), definition.toLowerCase()));
         }
     }
 
@@ -26,8 +25,11 @@ public class DictionaryManagement{
         try {
             File file   = new File("dictionaries.txt");
             Scanner sc  = new Scanner(file);
+            int i = 0;
             while (sc.hasNextLine()){
-                Dictionary.insertNewWord(new Word(sc.next(), sc.next() + sc.nextLine()));
+                String[] line = sc.nextLine().split("\t");
+                Dictionary.insertNewWord(new Word(line[0].toLowerCase(), line[1].toLowerCase()));
+//                System.out.println(i++);
             }
             sc.close();
         }
@@ -36,26 +38,6 @@ public class DictionaryManagement{
         }
     }
 
-    public static void dictionaryLookup(){
-        Scanner sc = new Scanner(System.in);
-        String string;
-        ArrayList<Word> arrl;
-        int tmp;
-        while(true){
-            System.out.print("Nhap tu can tra cuu: ");
-            string = sc.nextLine();
-            Word word = Dictionary.searchWord(string);
-            if (word != null) System.out.println(word.getDefinition());
-            else {
-                arrl = Dictionary.suggestion(string);
-                tmp = arrl.size();
-                if (tmp == 0) System.out.println("Khong co tu tim kiem phu hop!");
-                else {
-                    System.out.println("Khong tim thay, co the ban dang tim kiem nhung tu nay");
-                    for(int i = 0; i < tmp; i++) System.out.println(arrl.get(i).getEngWord());
-                }
-            }
-        }
-    }
+
 
 }
