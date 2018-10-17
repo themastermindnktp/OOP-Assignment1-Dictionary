@@ -1,15 +1,23 @@
+/* Authors: Do Hoang Khanh & Nguyen Thanh Dat */
 package dictionary;
 
 public class TrieNode
 {
-    private Word data;
-    private boolean endOfWord;
-    private TrieNode[] childNodes;
+    /*
+        TrieNode class is used to represent nodes in the Trie data structure
+        In this code, the target of trie nodes are saving Word objects
+
+        The details of the data structure should be seen on Trie class
+    */
+
+    private Word data;              // The word contained in this node as if this node is a terminal node
+    private TrieNode[] childNodes;  // The child nodes of this node listed by the ASCII code of
+                                    // the character on the connecting edge
 
     public TrieNode()
     {
-        childNodes = new TrieNode[256];
         data = null;
+        childNodes = new TrieNode[256];
     }
 
     public Word getData()
@@ -20,16 +28,6 @@ public class TrieNode
     public void setData(Word word)
     {
         data = word;
-    }
-
-    public boolean isEndOfWord()
-    {
-        return endOfWord;
-    }
-
-    public void setEndOfWord(boolean endOfWord)
-    {
-        this.endOfWord = endOfWord;
     }
 
     public TrieNode[] getChildNodes()
