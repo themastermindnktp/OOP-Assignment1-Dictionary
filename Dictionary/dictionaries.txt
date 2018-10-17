@@ -1,0 +1,200 @@
+garden	vuon
+example	vi du
+discuss	thao luan
+january	thang mot
+february	thang hai
+march	thang ba
+april	thang tu
+may	thang nam
+june	thang sau
+july	thang bay
+august	thang tam
+september	thang chin
+october	thang muoi
+november	thang muoi mot
+december	thang muoi hai
+defeat	that bai
+decide	quyet dinh
+day	ngay
+culture	van hoa
+cry	khoc
+pipe	cai tau
+electric	dien
+eleven	so muoi mot
+twenty	so hai muoi
+one	so mot
+ten	so muoi
+email	thu dien tu
+sex	gioi tinh
+six	so sau
+bone	xuong
+old	gia
+young	tre
+start	bat dau
+end	ket thuc
+person	con nguoi
+people	dan toc
+fear	noi so
+magic	phep thuat
+food	thuc an
+medicine	thuoc
+boy	con trai
+hand	ban tay
+ship	tau thuy
+girl	con gai
+leaf	la
+hang	treo
+hear	nghe
+help	giup
+imformation	thong tin
+injury	chan thuong
+open	mo
+party	tiec tung
+quick 	nhanh
+recent	gan day
+rope	day
+bad	te
+good	tot
+measure	do luong
+need	can
+ink	muc
+inside	ben trong
+outside	ben ngoai
+joke	tro dua
+kill	giet
+period	giai doan
+oil	dau
+qualify	chat luong
+rain	mua
+never	khong bao gio
+set	cai dat
+replace	thay the
+saturday	thu bay
+react	phan ung
+quiet	yen lang
+simple	don gian
+read	doc
+write	viet
+green	mau xanh la cay
+blue	mau xanh nuoc bien
+yellow	mau vang
+school	truong hoc
+shadow	bong toi
+success	thanh cong
+taxi	taxi
+rare	hiem
+tea	tra
+time	thoi gian
+unlucky	khong may man
+video	video
+zoo	so thu
+unfair	khong cong bang
+fair	cong bang
+term	ki hoc
+unique	dac biet
+very	rat
+vision	tam nhin
+violence	bao luc
+zone	vung
+wait	cho
+you	ban
+walk	di bo
+wake	thuc day
+wall	tuong
+when	khi nao
+winter	mua dong
+work	cong viec
+vocabulary	tu vung
+color	mau sac
+white	mau trang
+black	mau den
+monday	thu hai
+thurday	thu nam
+tuesday	thu ba
+vertical	cot
+line	hang
+grey	mau xam
+doctor	bac si
+professor	giao su
+dentist	nha si
+worker	con nhan
+babysister	bao mau
+guard	bao ve
+wenesday	thu tu
+sunday	chu nhat
+friday	thu sau
+three	so ba
+month	thang
+year	nam
+century	the ki
+chicken	con ga
+pig	con lon
+dog	con cho
+leopard	con bao
+lion	con su tu
+monkey	con khi
+bird	con chim
+shark	con ca map
+whale	con co voi
+animal	dong vat
+beast	quai thu
+monster	quai vat
+cat	con meo
+prince	hoang tu
+device	thiet bi
+mean	nghia
+live	song
+die	chet
+wife	vo
+husband	chong
+tree	cay
+length	chieu dai
+long	dai
+short	ngan
+heavy	nang
+weight	can nang
+height	chieu cao
+sea	bien
+mountain	nui
+tower	thap
+building	toa nha
+house	nha
+home	mai am
+sun	mat troi
+daughter	con gai
+mom	me
+dad	bo
+cousin	anh em ho
+table	cai ban
+light	anh sang
+shy	ngai ngung
+crowd	dam dong
+angry	tuc gian
+happy	vui
+sad	buon
+english	tieng Anh
+japanese	tieng Nhat
+korean	tieng Han Quoc
+Vietnamese	tieng Viet
+great	vi dai
+master	bac thay
+geography	dia ly
+math	toan hoc
+chemistry	hoa hoc
+student	hoc sinh
+campus	khuon vien
+god	thanh
+man	dan ong
+woman	dan ba
+laugh	cuoi lon
+smile	mim cuoi
+translate	phien dich
+language	ngon ngu
+action	hanh dong
+killer	sat thu
+soul	linh hon
+night	ban dem
+pen	cai but
+enoy	tan huong
+talk	noi chuyen
+see	nhin
