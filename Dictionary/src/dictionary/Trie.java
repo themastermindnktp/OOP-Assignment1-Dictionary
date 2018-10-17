@@ -45,7 +45,7 @@ public class Trie
         return size;
     }
 
-    // Find and return the word associated with a given key in trie
+    // Find and return the word associated with a given key in the trie
     // If the key has not been existing in trie, the method will return null pointer
     public Word find(String key)
     {
@@ -63,7 +63,7 @@ public class Trie
     }
 
     // Add a new word to trie
-    // If its engWord field - the keys string already exist, the associated data will only be replaced
+    // If its engWord field - the key string has already existed, the associated data will be replaced
     public void insert(Word newWord)
     {
         String key = newWord.getEngWord();
@@ -103,6 +103,7 @@ public class Trie
     }
 
     // Visit a node (DFS algorithm) and add all its data into the temporary list if possible
+    // The set of data will be listed in alphabetical order of key strings
     private void scan(TrieNode current)
     {
         if (current.getData() != null) tmpList.add(current.getData());

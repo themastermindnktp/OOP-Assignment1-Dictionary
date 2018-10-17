@@ -8,8 +8,8 @@ public class Word
         an English word and its Vietnamese definition
     */
 
-    private String engWord;     //English word
-    private String definition;  //Vietnamese definition of word
+    private String engWord;     // English word
+    private String definition;  // Vietnamese definition of word
 
     public Word(String engWord, String definition)
     {
