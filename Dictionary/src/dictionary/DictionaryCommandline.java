@@ -6,35 +6,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DictionaryCommandline{
-    private static final int space1 = 8;
-    private static final int space2 = 30;
-    private static final String dataFileName = "dictionaries.txt";
+    /*
+        The main part of the project interacting with users through console screen
+    */
+    private static final int space1 = 8;                            // Constant space of the first column
+    private static final int space2 = 30;                           // Constant space of the second column
+    private static final String dataFileName = "dictionaries.txt";  // Name of the database file
 
     private static final Scanner sc = new Scanner(System.in);
 
+    // Change the first letter of the word into uppercase
     public static String capitalize(String s) {
         return s.substring(0, 1).toUpperCase() + s.substring(1);
     }
 
-    public static void inform(String s) {
-        System.out.println(s);
-        System.out.println();
-    }
-
-    public static String read(String s) {
-        System.out.print(s);
-        String string = sc.nextLine().toLowerCase();
-        System.out.println();
-        return string;
-    }
-
-    public static void write(String s1, String s2, String s3) {
-        for (int i = 0, n = space1 - s1.length(); i < n; i++) System.out.print(" ");
-        System.out.print(s1 + "  │  " + s2);
-        for (int i = 0, n = space2 - s2.length(); i < n; i++) System.out.print(" ");
-        System.out.println("  │  " + s3);
-    }
-
+    // Clear the console screen
     public static void clearScreen(){
         try {
             if (System.getProperty("os.name").contains("Windows"))
@@ -44,6 +30,29 @@ public class DictionaryCommandline{
         } catch (IOException | InterruptedException ex) {}
     }
 
+    // Print notifications of the program
+    public static void inform(String s) {
+        System.out.println(s);
+        System.out.println();
+    }
+
+    // Print a command statement and read the value
+    public static String read(String s) {
+        System.out.print(s);
+        String string = sc.nextLine().toLowerCase();
+        System.out.println();
+        return string;
+    }
+
+    // Print the information of a word in 3-column format
+    public static void write(String s1, String s2, String s3) {
+        for (int i = 0, n = space1 - s1.length(); i < n; i++) System.out.print(" ");
+        System.out.print(s1 + "  │  " + s2);
+        for (int i = 0, n = space2 - s2.length(); i < n; i++) System.out.print(" ");
+        System.out.println("  │  " + s3);
+    }
+
+    // Print a set of word in 3-column format
     public static void printArray(ArrayList<Word> arr) {
         write("STT", "Tieng Anh", "Tieng Viet");
         System.out.println("────────────────────────────────────────────────────────────────────────────────────────────");
@@ -54,6 +63,7 @@ public class DictionaryCommandline{
         System.out.println();
     }
 
+    // Verify the order of users
     public static boolean confirm(String s) {
         String ans;
         while (true) {
@@ -65,6 +75,7 @@ public class DictionaryCommandline{
         return ans.equals("Y") || ans.equals("YES");
     }
 
+    // Hold the screen until users type "exit"
     public static void exitToMainMenu() {
         while (true) {
             System.out.print("Nhap \"exit\" de tro lai man hinh chinh! ");
@@ -73,6 +84,7 @@ public class DictionaryCommandline{
         }
     }
 
+    // Search the meaning of an English word
     public static void dictionarySearch(){
         while (true) {
             clearScreen();
@@ -99,6 +111,7 @@ public class DictionaryCommandline{
         }
     }
 
+    // List words which have the same prefix as the a given string
     public static void dictionarySearchByPrefix() {
         while (true) {
             clearScreen();
@@ -110,6 +123,7 @@ public class DictionaryCommandline{
         }
     }
 
+    // Create new word and its meaning
     public static void dictionaryInsert() {
         while (true) {
             clearScreen();
@@ -126,6 +140,7 @@ public class DictionaryCommandline{
         }
     }
 
+    // Change the definition of an English word
     public static void dictionaryRedefine() {
         while (true) {
             clearScreen();
@@ -151,6 +166,7 @@ public class DictionaryCommandline{
         }
     }
 
+    // Remove a word
     public static void dictionaryDelete() {
         while (true) {
             clearScreen();
@@ -167,11 +183,13 @@ public class DictionaryCommandline{
         }
     }
 
-    public static void showAllWords(){
+    // Print all the words in the dictionary to the console screen
+    public static void dictionaryShowAllWords(){
         printArray(Dictionary.all());
         exitToMainMenu();
     }
 
+    // Reload or update the data of the dictionary from a particular file
     public static void dictionaryReloadFromFile() {
         while (true) {
             clearScreen();
@@ -205,6 +223,7 @@ public class DictionaryCommandline{
         }
     }
 
+    // Save the data of the dictionary to a particular file
     public static void dictionarySaveToFile() {
         while (true) {
             clearScreen();
@@ -226,20 +245,22 @@ public class DictionaryCommandline{
             System.out.println("3/ Them tu moi vao tu dien");
             System.out.println("4/ Chinh sua tu trong tu dien");
             System.out.println("5/ Xoa tu trong tu dien");
-            System.out.println("6/ Thiet lap du lieu cho tu dien");
-            System.out.println("7/ Luu tru du lieu cua tu dien");
-            System.out.println("8/ Thoat");
+            System.out.println("6/ Hien thi cac tu trong tu dien ra man hinh");
+            System.out.println("7/ Thiet lap du lieu cho tu dien");
+            System.out.println("8/ Luu tru du lieu cua tu dien");
+            System.out.println("9/ Thoat");
             System.out.println();
-            System.out.print("Lua chon thao tac (1/2/3/4/5/6/7) : ");
+            System.out.print("Lua chon thao tac (1/2/3/4/5/6/7/8/9) :  ");
             String s = sc.nextLine();
             if (s.equals("1")) dictionarySearch();
             else if (s.equals("2")) dictionarySearchByPrefix();
             else if (s.equals("3")) dictionaryInsert();
             else if (s.equals("4")) dictionaryRedefine();
             else if (s.equals("5")) dictionaryDelete();
-            else if (s.equals("6")) dictionaryReloadFromFile();
-            else if (s.equals("7")) dictionarySaveToFile();
-            else if (s.equals("8")) break;
+            else if (s.equals("6")) dictionaryShowAllWords();
+            else if (s.equals("7")) dictionaryReloadFromFile();
+            else if (s.equals("8")) dictionarySaveToFile();
+            else if (s.equals("9")) break;
         }
     }
 
