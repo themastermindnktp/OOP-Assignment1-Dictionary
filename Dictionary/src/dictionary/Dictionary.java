@@ -1,35 +1,55 @@
+/* Authors: Do Hoang Khanh & Nguyen Thanh Dat */
 package dictionary;
 
 import java.util.ArrayList;
 
 public class Dictionary
 {
-    private final static int numberOfSuggestion = 10;
-    private static Trie vocabulary = new Trie();
+    /*
+        Dictionary class arranges and control all the data of the program,
+        provides methods to access, extract and change every information
+        of the dictionary.
+    */
 
-    public static int getSize()
+    private static Trie vocabulary = new Trie(); // The set of words, saved and managed by a trie
+
+    // Provide the number of words in the dictionary
+    public static int size()
     {
         return vocabulary.getSize();
     }
 
-    public static void insertNewWord(Word newWord)
+    // Find and return the information a given english word in the dictionary
+    // If the english has not been existing in dictionary, the method will return null pointer
+    public static Word find(String key)
+    {
+        return vocabulary.find(key);
+    }
+
+    // Add the new word into the dictionary
+    // If the english word has already existed, its definition will be replaced
+    public static void insert(Word newWord)
     {
         vocabulary.insert(newWord);
     }
 
-    public static Word searchWord(String engWord)
+    // Delete the an english word and its definition from the dictionary if it exists
+    public static void delete(String key)
     {
-        return vocabulary.find(engWord);
+        vocabulary.delete(key);
     }
 
+    // Provide a list of words which have the same prefix as the a given string
+    public static ArrayList<Word> searchByPrefix(String prefix)
+    {
+        return vocabulary.hasPrefix(prefix);
+    }
+
+    // Provide a list of all words in the dictionary
     public static ArrayList<Word> all()
     {
-        return vocabulary.hasPrefix("", vocabulary.getSize());
+        return vocabulary.hasPrefix("");
     }
 
-    public static ArrayList<Word> suggestion(String prefix)
-    {
-        return vocabulary.hasPrefix(prefix, numberOfSuggestion);
-    }
 
 }
