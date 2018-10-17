@@ -1,13 +1,27 @@
+/* Authors: Do Hoang Khanh & Nguyen Thanh Dat */
 package dictionary;
 
 import java.util.ArrayList;
 
 public class Trie
 {
-    private TrieNode root;
-    private int size;
-    private int tmpCounter;
-    private ArrayList<Word> tmpList;
+    /*
+        Trie class represents the same name data structure - Trie, which is also
+        called Digital Tree, Radix Tree or Prefix Tree. It is a kind of search
+        tree, used to store a dynamic set where keys are strings. A Trie can be
+        seen as a tree-shaped Deterministic acyclic finite automaton.
+
+        In this code, trie is used to save Word objects, whose key strings are
+        equal to their engWord field.
+
+        More details about how it should be implement can be seen on this link:
+        <https://en.wikipedia.org/wiki/Trie>
+    */
+
+    private TrieNode root;              // The root node of the trie
+    private int size;                   // The number of words contained in the trie
+
+    private ArrayList<Word> tmpList;    // Temporary list used in recursion processes
 
     public Trie()
     {
@@ -16,66 +30,96 @@ public class Trie
         tmpList = new ArrayList<>();
     }
 
+    public TrieNode getRoot()
+    {
+        return root;
+    }
+
+    public void setRoot(TrieNode root)
+    {
+        this.root = root;
+    }
+
     public int getSize()
     {
         return size;
     }
 
-    public void insert(Word newWord)
-    {
-        size++;
-        TrieNode current = root;
-        String string = newWord.getEngWord();
-
-        for(int i = 0, size = string.length(); i < size; ++i)
-        {
-            int index = string.charAt(i);
-            TrieNode[] childNodes = current.getChildNodes();
-            if (childNodes[index] == null) childNodes[index] = new TrieNode();
-            current = childNodes[index];
-        }
-
-        current.setEndOfWord(true);
-        current.setData(newWord);
-    }
-
-    public Word find(String string)
+    // Find and return the word associated with a given key in trie
+    // If the key has not been existing in trie, the method will return null pointer
+    public Word find(String key)
     {
         TrieNode current = root;
 
-        for(int i = 0, size = string.length(); i < size; ++i)
+        for(int i = 0, l = key.length(); i < l; ++i)
         {
-            int index = string.charAt(i);
+            int index = key.charAt(i);
             TrieNode[] childNodes = current.getChildNodes();
             if (childNodes[index] == null) return null;
             current = childNodes[index];
         }
 
-        if (current.isEndOfWord()) return current.getData();
-        return null;
+        return current.getData();
     }
 
-    private void scan(TrieNode current)
+    // Add a new word to trie
+    // If its engWord field - the keys string already exist, the associated data will only be replaced
+    public void insert(Word newWord)
     {
-        if (tmpCounter == 0) return;
-        if (current.isEndOfWord()) tmpList.add(current.getData());
+        String key = newWord.getEngWord();
 
-        TrieNode[] childNodes = current.getChildNodes();
-        for(int i = 0; i < 256; ++i)
+        TrieNode current = root;
+
+        for(int i = 0, l = key.length(); i < l; ++i)
         {
-            if (childNodes[i] != null) scan(childNodes[i]);
-            if (tmpCounter == 0) return;
+            int index = key.charAt(i);
+            TrieNode[] childNodes = current.getChildNodes();
+            if (childNodes[index] == null) childNodes[index] = new TrieNode();
+            current = childNodes[index];
+        }
+
+        if (current.getData() == null) size++;
+        current.setData(newWord);
+    }
+
+    // Delete the data which is associated with a given key
+    public void delete(String key)
+    {
+        TrieNode current = root;
+
+        for(int i = 0, l = key.length(); i < l; ++i)
+        {
+            int index = key.charAt(i);
+            TrieNode[] childNodes = current.getChildNodes();
+            if (childNodes[index] == null) return;
+            current = childNodes[index];
+        }
+
+        if (current.getData() != null)
+        {
+            size--;
+            current.setData(null);
         }
     }
 
-    public ArrayList<Word> hasPrefix(String prefix, int number)
+    // Visit a node (DFS algorithm) and add all its data into the temporary list if possible
+    private void scan(TrieNode current)
     {
-        tmpCounter = number;
+        if (current.getData() != null) tmpList.add(current.getData());
+
+        TrieNode[] childNodes = current.getChildNodes();
+        for(int i = 0; i < 256; ++i)
+            if (childNodes[i] != null) scan(childNodes[i]);
+    }
+
+    // Return an array of all the data associated with keys which has the same prefix as a given string
+    public ArrayList<Word> hasPrefix(String prefix)
+    {
         tmpList.clear();
 
         TrieNode current = root;
 
-        for(int i = 0, size = prefix.length(); i < size; ++i)
+        for(int i = 0, l = prefix.length(); i < l; ++i)
         {
             int index = prefix.charAt(i);
             TrieNode[] childNodes = current.getChildNodes();
@@ -85,25 +129,6 @@ public class Trie
 
         scan(current);
         return tmpList;
-    }
-
-    public void delete(String string)
-    {
-        TrieNode current = root;
-
-        for(int i = 0, size = string.length(); i < size; ++i)
-        {
-            int index = string.charAt(i);
-            TrieNode[] childNodes = current.getChildNodes();
-            if (childNodes[index] == null) return;
-            current = childNodes[index];
-        }
-
-        if (current.isEndOfWord())
-        {
-            size--;
-            current.setEndOfWord(false);
-        }
     }
 
 }
