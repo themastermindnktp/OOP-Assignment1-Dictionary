@@ -1,43 +1,68 @@
+/* Authors: Do Hoang Khanh & Nguyen Thanh Dat */
 package dictionary;
 
-import java.io.FileNotFoundException;
-import java.io.File;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class DictionaryManagement{
-    public static void insertFromCommandline(){
-        String engWord, definition;
+public class DictionaryManagement {
+    /*
+        DictionaryManagement class has the mission to import and export
+        the data of the dictionary between the program and data source
+    */
+
+    // Import the data from commandline
+    public static void importFromCommandline() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Nhap vao so luong tu: ");
+        System.out.print("So luong tu muon nhap: ");            // Enter the number of input word
         int numberOfWord = sc.nextInt();
         sc.nextLine();
-        for(int i = 0; i < numberOfWord; i++){
-            System.out.print("Nhap tu Tieng Anh: ");
-            engWord = sc.nextLine();
-            System.out.print("Nhap giai thich tieng Viet: ");
-            definition = sc.nextLine();
-            Dictionary.insertNewWord(new Word(engWord.toLowerCase(), definition.toLowerCase()));
+        for (int i = 0; i < numberOfWord; i++) {
+            System.out.print("Nhap tu Tieng Anh: ");            // Enter the English word
+            String engWord = sc.nextLine().toLowerCase();
+            System.out.print("Nhap dinh nghia Tieng Viet: ");   // Enter the Vietnamese definition
+            String definition = sc.nextLine().toLowerCase();
+            Dictionary.insert(new Word(engWord, definition));
         }
     }
 
-    public static void insertFromFile(){
-
+    // Import the data from file
+    public static void importFromFile(String inputFileName) {
         try {
-            File file   = new File("dictionaries.txt");
-            Scanner sc  = new Scanner(file);
-            int i = 0;
-            while (sc.hasNextLine()){
-                String[] line = sc.nextLine().split("\t");
-                Dictionary.insertNewWord(new Word(line[0].toLowerCase(), line[1].toLowerCase()));
-//                System.out.println(i++);
+            File f = new File(inputFileName);
+            Scanner sc = new Scanner(f);
+            while (sc.hasNextLine()) {
+                String[] line = sc.nextLine().toLowerCase().split("\t");
+                Dictionary.insert(new Word(line[0], line[1]));
             }
             sc.close();
         }
-        catch (FileNotFoundException exception){
-            exception.printStackTrace();
+        catch (FileNotFoundException ex) {
+            ex.printStackTrace();
         }
     }
 
-
+    // Export the data to file
+    public static void exportToFile(String outputFileName) {
+        try {
+            File f = new File(outputFileName);
+            if (!f.exists()) {
+                f.createNewFile();
+            }
+            FileWriter fw = new FileWriter(f.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            ArrayList<Word> arr = Dictionary.all();
+            for (int i = 0, n = Dictionary.size(); i < n; i++) {
+                Word word = arr.get(i);
+                bw.write(word.getEngWord() + "\t" + word.getDefinition());
+                bw.newLine();
+            }
+            bw.close();
+            fw.close();
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
 }
