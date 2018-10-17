@@ -19,21 +19,21 @@ public class Dictionary
         return vocabulary.getSize();
     }
 
-    // Find and return the information a given english word in the dictionary
-    // If the english has not been existing in dictionary, the method will return null pointer
+    // Find and return the information a given English word in the dictionary
+    // If the English has not been existing in dictionary, the method will return null pointer
     public static Word find(String key)
     {
         return vocabulary.find(key);
     }
 
     // Add the new word into the dictionary
-    // If the english word has already existed, its definition will be replaced
+    // If the English word has already existed, its definition will be replaced
     public static void insert(Word newWord)
     {
         vocabulary.insert(newWord);
     }
 
-    // Delete the an english word and its definition from the dictionary if it exists
+    // Remove the an English word and its definition from the dictionary if it exists
     public static void delete(String key)
     {
         vocabulary.delete(key);
@@ -48,8 +48,13 @@ public class Dictionary
     // Provide a list of all words in the dictionary
     public static ArrayList<Word> all()
     {
-        return vocabulary.hasPrefix("");
+        return vocabulary.hasPrefix(""); // Get all words by method hasPrefix() with the prefix is the empty string
     }
 
+    // Erase the data of all words in the dictionary
+    public static void clear()
+    {
+        vocabulary.clear();
+    }
 
 }

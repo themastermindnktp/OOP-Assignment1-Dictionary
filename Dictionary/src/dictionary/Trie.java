@@ -82,7 +82,7 @@ public class Trie
         current.setData(newWord);
     }
 
-    // Delete the data which is associated with a given key
+    // Remove the data which is associated with a given key
     public void delete(String key)
     {
         TrieNode current = root;
@@ -130,6 +130,13 @@ public class Trie
 
         scan(current);
         return tmpList;
+    }
+
+    // Remake a new trie with no content
+    public void clear()
+    {
+        root = new TrieNode();
+        size = 0;
     }
 
 }
