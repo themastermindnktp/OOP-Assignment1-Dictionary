@@ -48,7 +48,7 @@ public class Dictionary
     // Provide a list of all words in the dictionary
     public static ArrayList<Word> all()
     {
-        return vocabulary.hasPrefix(""); // Get all words by method hasPrefix() with the prefix is the empty string
+        return vocabulary.all(); // Get all words by method hasPrefix() with the prefix is the empty string
     }
 
     // Erase the data of all words in the dictionary

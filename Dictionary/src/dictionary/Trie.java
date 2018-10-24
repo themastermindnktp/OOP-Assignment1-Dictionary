@@ -49,6 +49,7 @@ public class Trie
     // If the key has not been existing in trie, the method will return null pointer
     public Word find(String key)
     {
+        key = key.toLowerCase();
         TrieNode current = root;
 
         for(int i = 0, l = key.length(); i < l; ++i)
@@ -66,7 +67,7 @@ public class Trie
     // If its engWord field - the key string has already existed, the associated data will be replaced
     public void insert(Word newWord)
     {
-        String key = newWord.getEngWord();
+        String key = newWord.getEngWord().toLowerCase();
 
         TrieNode current = root;
 
@@ -85,6 +86,7 @@ public class Trie
     // Remove the data which is associated with a given key
     public void delete(String key)
     {
+        key = key.toLowerCase();
         TrieNode current = root;
 
         for(int i = 0, l = key.length(); i < l; ++i)
@@ -113,9 +115,17 @@ public class Trie
             if (childNodes[i] != null) scan(childNodes[i]);
     }
 
+    public ArrayList<Word> all()
+    {
+        tmpList.clear();
+        scan(root);
+        return tmpList;
+    }
+
     // Return an array of all the data associated with keys which has the same prefix as a given string
     public ArrayList<Word> hasPrefix(String prefix)
     {
+        prefix = prefix.toLowerCase();
         tmpList.clear();
 
         TrieNode current = root;

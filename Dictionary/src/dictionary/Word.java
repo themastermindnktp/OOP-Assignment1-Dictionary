@@ -5,16 +5,18 @@ public class Word
 {
     /*
         Word class is used to contain the information of
-        an English word and its Vietnamese definition
+        an English word, its pronunciation and detail
     */
 
-    private String engWord;     // English word
-    private String definition;  // Vietnamese definition of word
+    private String engWord;         // English word
+    private String pronunciation;   // English pronunciation
+    private String detail;          // English detail
 
-    public Word(String engWord, String definition)
+    public Word(String engWord, String pronunciation, String detail)
     {
-        this.engWord    = engWord.toLowerCase();
-        this.definition = definition.toLowerCase();
+        this.engWord        = engWord;
+        this.pronunciation  = pronunciation;
+        this.detail         = detail;
     }
 
     public String getEngWord()
@@ -27,14 +29,23 @@ public class Word
         this.engWord = engWord;
     }
 
-    public String getDefinition()
+    public String getPronunciation()
     {
-        return definition;
+        return pronunciation;
     }
 
-    public void setDefinition(String definition)
+    public void setPronunciation(String pronunciation)
     {
-        this.definition = definition;
+        this.pronunciation = pronunciation;
     }
 
+    public String getDetail()
+    {
+        return detail;
+    }
+
+    public void setDetail(String detail)
+    {
+        this.detail = detail;
+    }
 }

@@ -1,14 +1,17 @@
 /* Authors: Do Hoang Khanh & Nguyen Thanh Dat */
 package dictionary;
 
+/* COMMANDLINE
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+*/
 
 public class DictionaryCommandline{
     /*
         The main part of the project interacting with users through console screen
     */
+    /*
     private static final int space1 = 8;                            // Constant space of the first column
     private static final int space2 = 30;                           // Constant space of the second column
     private static final String dataFileName = "dictionaries.txt";  // Name of the database file
@@ -264,8 +267,10 @@ public class DictionaryCommandline{
         }
     }
 
+
     public static void main(String[] args) {
         DictionaryManagement.importFromFile(dataFileName);
         mainMenu();
     }
+    */
 }

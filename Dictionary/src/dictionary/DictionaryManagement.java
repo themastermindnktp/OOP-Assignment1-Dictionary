@@ -3,14 +3,80 @@ package dictionary;
 
 import java.io.*;
 import java.util.ArrayList;
+
+/* COMMANDLINE
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
+*/
 
 public class DictionaryManagement {
     /*
         DictionaryManagement class has the mission to import and export
         the data of the dictionary between the program and data source
     */
+    public static String dataFileName = "dictionary.txt";
 
+    public static void importData()
+    {
+        try
+        {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(dataFileName)), "UTF8"));
+
+            String engWord;
+            String pronunciation;
+            String detail;
+
+            while ((engWord = reader.readLine()) != null)
+            {
+                pronunciation = reader.readLine();
+                detail = reader.readLine();
+                Dictionary.insert(new Word(engWord, pronunciation, detail));
+            }
+
+            reader.close();
+        }
+        catch (IOException exception)
+        {
+            System.out.println(exception.getMessage());
+        }
+        catch (Exception exception)
+        {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    public static void exportData()
+    {
+        try
+        {
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(dataFileName)), "UTF8"));
+
+            ArrayList<Word> words = Dictionary.all();
+
+            for(int i = 0, n = words.size(); i < n; ++i)
+            {
+                Word word = words.get(i);
+                writer.write(word.getEngWord());
+                writer.newLine();
+                writer.write(word.getPronunciation());
+                writer.newLine();
+                writer.write(word.getDetail());
+                writer.newLine();
+            }
+
+        }
+        catch (IOException exception)
+        {
+            System.out.println(exception.getMessage());
+        }
+        catch (Exception exception)
+        {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    /* COMMANDLINE VERSION
     // Import the data from commandline
     public static void importFromCommandline() {
         Scanner sc = new Scanner(System.in);
@@ -64,5 +130,5 @@ public class DictionaryManagement {
             ex.printStackTrace();
         }
     }
-
+    */
 }
