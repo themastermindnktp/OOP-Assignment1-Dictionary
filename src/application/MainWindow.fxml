@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+   <children>
+      <HBox cache="true" layoutX="14.0" layoutY="14.0" prefHeight="47.0" prefWidth="929.0" spacing="20.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Button fx:id="settingButton" mnemonicParsing="false" prefHeight="47.0" prefWidth="164.0" text="Cài Đặt">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/SettingButtonIcon.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="addWordButton" mnemonicParsing="false" prefHeight="47.0" prefWidth="164.0" text="Thêm Từ Mới">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/AddWordButtonIcon.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editWordButton" mnemonicParsing="false" prefHeight="47.0" prefWidth="164.0" text="Chỉnh Sửa Từ">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/EditWordButton.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="deleteWordButton" mnemonicParsing="false" prefHeight="47.0" prefWidth="164.0" text="Xóa Từ">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/DeleteWordButtonIcon.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="translateButton" mnemonicParsing="false" prefHeight="47.0" prefWidth="164.0" text="Dịch Văn Bản">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/TranslateButtonIcon.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="70.0" prefHeight="39.0" prefWidth="232.0" spacing="10.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <TextField fx:id="searchBox" prefHeight="42.0" prefWidth="181.0" promptText="Nhập từ cần tra cứu" />
+            <Button fx:id="searchButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="39.0">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/SearchButtonIcon.png" />
+                     </image></ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutX="14.0" layoutY="119.0" prefHeight="449.0" prefWidth="232.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="118.0">
+         <children>
+            <AnchorPane prefHeight="449.0" prefWidth="232.0">
+               <children>
+                  <ListView fx:id="wordList" prefHeight="449.0" prefWidth="232.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <TextArea fx:id="wordDetail" layoutX="259.0" layoutY="161.0" prefHeight="401.0" prefWidth="541.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="161.0" />
+      <HBox alignment="BOTTOM_LEFT" layoutX="259.0" layoutY="68.0" prefHeight="39.0" prefWidth="541.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="68.0">
+         <children>
+            <AnchorPane prefHeight="39.0" prefWidth="546.0">
+               <children>
+                  <Text fx:id="englishText" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="541.0000105500221" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font name="Times New Roman Bold" size="35.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox layoutX="259.0" layoutY="118.0" prefHeight="30.0" prefWidth="541.0" AnchorPane.leftAnchor="259.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="118.0">
+         <children>
+            <AnchorPane prefHeight="38.0" prefWidth="542.0">
+               <children>
+                  <Button fx:id="speakButton" layoutX="1.0" layoutY="11.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="29.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/PronounButton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Text fx:id="pronunciationText" layoutX="37.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="501.99999238550663" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="3.0">
+                     <font>
+                        <Font name="Arial Italic" size="26.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

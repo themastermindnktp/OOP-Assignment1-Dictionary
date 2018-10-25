@@ -1,0 +1,1 @@
+javac Converter.java && java Converter dictionary.txt
